@@ -1,0 +1,31 @@
+Sintaxis de un módulo: module YourModule where
+
+Si queremos exportar sólo una lista de símbolos, module YourModule (export_uno, export_dos) where
+
+Esto permitiría usar export_uno y export_dos allá donde se exporte, pero no export_tres.
+
+
+
+Sintaxis de un import:
+import Data.Char (toLower, toUpper)
+
+	importaría toLower y toUpper de Data.Char.
+
+Import qualificado:
+- import qualified. Permite importar un módulo completo que tiene que ser usado con el prefijo en vez de usar la función directamente. Es decir,
+
+En un import normal,
+
+import Data.Char
+mayusculas = toUpper
+
+En un import cualificado,
+
+import qualified Data.Char
+mayusculas = Data.Char.toUpper
+
+En verdad puedes usar el módulo como prefijo incluso sin poner qualified, pero con qualified, no se importan los alises.
+
+- Hiding imports: import MyModule hiding (remove_e)  importa todo menos (remove_e)
+
+- Renaming imports: import qualified MyModuleWithAVeryLongModuleName as Shorty  con la palabra clave as podemos cambiar de nombre un import.
